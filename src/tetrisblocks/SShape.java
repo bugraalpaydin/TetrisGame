@@ -4,8 +4,16 @@ import tetris.TetrisBlock;
 
 public class SShape extends TetrisBlock {
     public SShape() {
-        // TODO: Add SShape Here
         super(new int[][] {
+            {1, 0},
+            {1, 1},
+            {0, 1}
         });
     }
+
+    @Override
+    public void rotate() {
+        super.rotate();
+    }
 }
+

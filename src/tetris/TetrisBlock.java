@@ -95,7 +95,17 @@ public class TetrisBlock {
     }
 
     public void rotate() {
-        throw new UnsupportedOperationException("This will implemented by students");
+        int[][] shape = this.getShape(); // Retrieve the current shape
+        int rows = shape.length;
+        int cols = shape[0].length;
+        int[][] rotatedShape = new int[cols][rows];
+
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                rotatedShape[col][rows - 1 - row] = shape[row][col];
+            }
+        }
+        this.shape = rotatedShape;
     }
 
     public int getBottomEdge() {

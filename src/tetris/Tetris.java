@@ -1,6 +1,7 @@
 package tetris;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 
 public class Tetris {
     private static GameForm gf;
@@ -16,7 +17,12 @@ public class Tetris {
     }
 
     public static void gameOver(int score) {
+        JOptionPane.showMessageDialog(null, 
+        "Game Over\n Your Score: " +score, 
+        null, 
+        JOptionPane.INFORMATION_MESSAGE);
         gf.setVisible(false);
+        sf.setVisible(true);
 
     }
 

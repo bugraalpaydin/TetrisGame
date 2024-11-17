@@ -9,4 +9,9 @@ public class JShape extends TetrisBlock {
                 { 1, 1 }
         });
     }
+
+    @Override
+    public void rotate() {
+        super.rotate();
+    }
 }

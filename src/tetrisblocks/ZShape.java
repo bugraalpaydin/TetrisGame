@@ -4,8 +4,15 @@ import tetris.TetrisBlock;
 
 public class ZShape extends TetrisBlock {
     public ZShape() {
-        // TODO: Add ZShape Here
         super(new int[][] {
+            {0, 1},
+            {1, 1},
+            {1, 0}
         });
+    }
+
+    @Override
+    public void rotate() {
+        super.rotate();
     }
 }
