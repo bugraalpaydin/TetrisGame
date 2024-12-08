@@ -1,3 +1,4 @@
+
 package tetris;
 
 import java.awt.event.ActionEvent;
@@ -7,11 +8,14 @@ import javax.swing.InputMap;
 import javax.swing.JFrame;
 import javax.swing.KeyStroke;
 
+import com.fazecast.jSerialComm.SerialPort;
+
 public class GameForm extends JFrame
 {
+    SerialInput serialInput = new SerialInput();
+    SerialThread serialThread = new SerialThread();
     private GameArea ga;
     private GameThread gt;
-    
     public GameForm()
     {
         initComponents();
@@ -19,11 +23,12 @@ public class GameForm extends JFrame
         ga = new GameArea(gameAreaPlaceholder, 10);
         this.add(ga);
         
-        initControls();
+        initControls(serialInput.chosenPortGetter());
     }
     
-    private void initControls()
+    private void initControls(SerialPort chosenPort)
     {
+
         InputMap im = this.getRootPane().getInputMap();
         ActionMap am = this.getRootPane().getActionMap();
         
@@ -31,8 +36,7 @@ public class GameForm extends JFrame
         im.put(KeyStroke.getKeyStroke("LEFT"), "left");
         im.put(KeyStroke.getKeyStroke("UP"), "up");
         im.put(KeyStroke.getKeyStroke("DOWN"), "down");
-        
-        am.put("right", new AbstractAction(){
+        am.put("right", new AbstractAction(){ 
             @Override
             public void actionPerformed(ActionEvent e) {
                 ga.moveBlockRight();

@@ -18,7 +18,6 @@ public class TetrisBlock {
         initShapes();
     }
 
-    @SuppressWarnings("unused")
     private void initShapes() {
         shapes = new int[4][][];
 

@@ -29,7 +29,7 @@ public class Tetris {
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-
+                SerialInput ibrahim = new SerialInput();
                 gf = new GameForm();
                 sf = new StartupForm();
                 sf.setVisible(true);
